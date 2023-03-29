@@ -8,4 +8,8 @@ public interface CarService {
     List<Car> fetchCarList();
 
     String addNewCar(Car car);
+
+    String updateCar(Car car);
+
+    String deleteCar(Long id);
 }

@@ -28,4 +28,20 @@ public class CarImpl implements CarService {
         jdbcTemplate.update(sql,new Object[]{car.getId(),car.getBrand(),car.getModel()});
         return "Car added!!!";
     }
+
+    @Override
+    public String updateCar(Car car) {
+        String sql="update car set brand=?, model=? where id=?";
+        jdbcTemplate.update(sql,new Object[]{car.getBrand(),car.getModel(),car.getId()});
+        return "Car Updated!!!";
+    }
+
+    @Override
+    public String deleteCar(Long id) {
+        String sql="delete from car where id=?";
+        jdbcTemplate.update(sql,new Object[]{id});
+        return "Car Removed!!!";
+    }
+
+
 }

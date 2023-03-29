@@ -4,10 +4,7 @@ import com.jdbc.jdbcdemo.model.Car;
 import com.jdbc.jdbcdemo.service.CarService;
 import com.jdbc.jdbcdemo.serviceimpl.CarImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,15 @@ public class CarController {
     @PostMapping("/addCar")
     public String addCar(@RequestBody Car car){
         return carService.addNewCar(car);
+    }
+
+    @PutMapping("/updateCar")
+    public String updateCarInfo(@RequestBody Car car){
+        return carService.updateCar(car);
+    }
+
+    @DeleteMapping("/deleteCar/{id}")
+    public String removeCar(@PathVariable Long id){
+        return carService.deleteCar(id);
     }
 }
