@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class CarController {
@@ -32,5 +33,10 @@ public class CarController {
     @DeleteMapping("/deleteCar/{id}")
     public String removeCar(@PathVariable Long id){
         return carService.deleteCar(id);
+    }
+
+    @GetMapping("/cars/{brandId}")
+    public List<Map<String,Object>> fetchCarListByBrandId(@PathVariable Long brandId){
+        return carService.fetchCarListByBrand(brandId);
     }
 }

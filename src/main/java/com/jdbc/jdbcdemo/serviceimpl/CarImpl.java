@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CarImpl implements CarService {
@@ -41,6 +42,13 @@ public class CarImpl implements CarService {
         String sql="delete from car where id=?";
         jdbcTemplate.update(sql,new Object[]{id});
         return "Car Removed!!!";
+    }
+
+    @Override
+    public List<Map<String, Object>> fetchCarListByBrand(Long brandId) {
+        String sql="select c.id,c.name as carName,b.name as brandName from car c,brand b where b.id=c.brand_id and b.id=?;";
+        List<Map<String,Object>> carList = jdbcTemplate.queryForList(sql,new Object[]{brandId});
+        return carList;
     }
 
 
