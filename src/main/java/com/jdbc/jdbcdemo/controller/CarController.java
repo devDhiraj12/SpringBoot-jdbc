@@ -39,4 +39,9 @@ public class CarController {
     public List<Map<String,Object>> fetchCarListByBrandId(@PathVariable Long brandId){
         return carService.fetchCarListByBrand(brandId);
     }
+
+    @GetMapping("/testaop")
+    public String checkAop(){
+        return carService.testAop();
+    }
 }

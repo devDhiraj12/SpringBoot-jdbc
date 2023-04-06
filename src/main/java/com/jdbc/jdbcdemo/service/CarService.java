@@ -15,4 +15,6 @@ public interface CarService {
     String deleteCar(Long id);
 
     List<Map<String,Object>> fetchCarListByBrand(Long brandId);
+
+    String testAop();
 }
