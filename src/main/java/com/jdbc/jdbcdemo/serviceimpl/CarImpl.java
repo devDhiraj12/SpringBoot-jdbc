@@ -51,11 +51,7 @@ public class CarImpl implements CarService {
         return carList;
     }
 
-    @Override
-    public String testAop() {
-        System.out.println();
-        return "hello AOP";
-    }
+
 
 
 }

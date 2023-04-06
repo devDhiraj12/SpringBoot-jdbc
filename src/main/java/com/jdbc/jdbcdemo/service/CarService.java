@@ -16,5 +16,4 @@ public interface CarService {
 
     List<Map<String,Object>> fetchCarListByBrand(Long brandId);
 
-    String testAop();
 }

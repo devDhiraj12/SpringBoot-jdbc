@@ -5,6 +5,9 @@ import com.jdbc.jdbcdemo.service.CarService;
 import com.jdbc.jdbcdemo.serviceimpl.CarImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.List;
 import java.util.Map;
@@ -40,8 +43,5 @@ public class CarController {
         return carService.fetchCarListByBrand(brandId);
     }
 
-    @GetMapping("/testaop")
-    public String checkAop(){
-        return carService.testAop();
-    }
+
 }
